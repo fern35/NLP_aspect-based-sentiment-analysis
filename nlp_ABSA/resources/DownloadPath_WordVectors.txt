@@ -1,0 +1,7 @@
+
+we download pretrained word vectors from: https://nlp.stanford.edu/projects/glove/
+
+Twitter (2B tweets, 27B tokens, 1.2M vocab, uncased, 25d, 50d, 100d, & 200d vectors, 1.42 GB download)
+
+We choose the dimension: 50d 
+The file: glove.twitter.27B.50d.txt
