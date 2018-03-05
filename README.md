@@ -12,7 +12,7 @@ Choose the dimension: 50d
 ## 1)Clean data
 Before constructing input matrix for LSTM, I remove punctuation, digits from the data, and do lemmatization and transform all words to lower case. I do not remove stop words from the data, because I think it will break the structure of a complete sentence, which is probably not helpful for POSTags and training process of LSTM
 
-There is a problem that there are some words in the dev set which do not occur in the train set. So I replace them with the string '<hashtag>'
+There is a problem that there are some words in the dev set which do not occur in the train set. So I replace them with the string '\<hashtag\>'
 
 #### There are three functions: lower_case(), remove_punctuation() and remove_digits(), which are based on the code of another project of Aeiocha and mine.
 
