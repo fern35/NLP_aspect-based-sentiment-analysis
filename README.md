@@ -1,5 +1,5 @@
 # NLP_aspect-based-sentiment-analysis
-project of the course NLP of Centralesupélec
+This is a project of the course NLP of Centralesupélec
 
 # Description
 ## 0)pretrained word vectors
