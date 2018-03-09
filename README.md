@@ -67,7 +67,7 @@ The output of LSTM model is a vector with length=3;
 [0,1,0]-->'negative'  
 [0,0,1]-->'neutral'  
 
-## 3). The accuracy  on the test set
+## 3). The accuracy  on the dev set
 The accuracy that I get on the dev set is 81 per cent
 
 Please notice that the data is imbalanced, 70% of the message are "positive".
