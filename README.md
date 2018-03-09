@@ -45,9 +45,9 @@ I will explain the process with an example:
 After cleaning the data, we get "the hostess and the waitress were incredibly rude and did everything they could to rush us out" , and we get the aspect "SERVICE#GENERAL", aspect term "waitress".  
 
 For this message, we construct a 2D matrix: each row of the matrix represents the information of each word in the meassage. The last word in the meassage is "out", so the last row of the 2D matrix should be:   
-[ the 50d word vector which represents "out", 
-aspect code which represents "SERVICE#GENERAL", 
-the distance code which represents the distance between "out" and aspect term "waitress",
+[ the 50d word vector which represents "out",   
+aspect code which represents "SERVICE#GENERAL",   
+the distance code which represents the distance between "out" and aspect term "waitress",  
 POSTag code which represents the POSTag of "out" in this message ]
 
 There is a problem that the number of words in each sentence is different, so we use the function "keras.preprocessing.sequence.pad_sequences()" to standardize the shape of the matrix. So the shape of the 2D matrix should be (100,(50+12+7+36))  
