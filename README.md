@@ -1,5 +1,4 @@
 # NLP_aspect-based-sentiment-analysis
-This is a project of the course NLP of Centralesupélec  
 reference link: http://nlpcourse.europe.naverlabs.com
 
 # Description of the project
