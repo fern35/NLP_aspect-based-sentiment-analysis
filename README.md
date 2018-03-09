@@ -1,26 +1,27 @@
 # NLP_aspect-based-sentiment-analysis
-This is a project of the course NLP of Centralesupélec
+This is a project of the course NLP of Centralesupélec  
 reference link: http://nlpcourse.europe.naverlabs.com/#exercise2
 
 # Description of the project
-0) Introduction 
+## 0) Introduction 
 The goal of the project is to design a classifier to predict aspect-based polarities of opinions in
 sentences, that assigns a polarity label to every triple <aspect categories, aspect_term, sentence>.
 The polarity labels are positive, negative and neutral. Note that a sentence may have several
-opinions.
+opinions.  
 
-For example, the input of the classifier is "AMBIENCE#GENERAL seating 18:25 short and sweet – seating is great:it's romantic,cozy and private." and the output of the classifier is "positive".
+For example, the input of the classifier is "AMBIENCE#GENERAL seating 18:25 short and sweet – seating is great:it's romantic,cozy and private." and the output of the classifier is "positive".  
 
-1) Data set
+## 1) Data set
 Each line contains 5 tab-separated fields: the polarity of the opinion, the aspect category on which
 the opinion is expressed, a specific target term, the character offsets of the term (start:end), and the
-sentence in which that opinion is expressed.
+sentence in which that opinion is expressed.  
 
-an example:
-"positive AMBIENCE#GENERAL seating 18:25 short and sweet – seating is great:it's romantic,cozy and private."
+an example:  
+"positive AMBIENCE#GENERAL seating 18:25 short and sweet – seating is great:it's romantic,cozy and private."  
 
-in this example, the opinion about the AMBIENCE#GENERAL aspect, which is associated to the term "seating", is positive.
-There are 12 different aspects categories.
+In this example, the opinion about the AMBIENCE#GENERAL aspect, which is associated to the term "seating", is positive.  
+
+There are 12 different aspects categories.  
 
 # Description of the code
 ## 0)pretrained word vectors
@@ -39,14 +40,14 @@ There is a problem that there are some words in the dev set which do not occur i
 
 ## 2) Construction of the input to the LSTM Model
 I will explain the process with an example:
-"negative SERVICE#GENERAL waitress 20:28 The hostess and the waitress were incredibly rude and did everything they could to rush us out."
+"negative SERVICE#GENERAL waitress 20:28 The hostess and the waitress were incredibly rude and did everything they could to rush us out."  
 
-After cleaning the data, we get "the hostess and the waitress were incredibly rude and did everything they could to rush us out" , and we get the aspect "SERVICE#GENERAL", aspect term "waitress".
+After cleaning the data, we get "the hostess and the waitress were incredibly rude and did everything they could to rush us out" , and we get the aspect "SERVICE#GENERAL", aspect term "waitress".  
 
-For this message, we construct a 2D matrix: each row of the matrix represents the information of each word in the meassage. The last word in the meassage is "out", so the last row of the 2D matrix should be:
+For this message, we construct a 2D matrix: each row of the matrix represents the information of each word in the meassage. The last word in the meassage is "out", so the last row of the 2D matrix should be:  
 [the 50d word vector which represents "out", aspect code which represents "SERVICE#GENERAL", the distance code which represents the distance between "out" and aspect term "waitress", POSTag code which represents the POSTag of "out" in this message]
 
-There is a problem that the number of words in each sentence is different, so we use the function "keras.preprocessing.sequence.pad_sequences()" to standardize the shape of the matrix. So the shape of the 2D matrix should be (100,(50+12+7+36))
+There is a problem that the number of words in each sentence is different, so we use the function "keras.preprocessing.sequence.pad_sequences()" to standardize the shape of the matrix. So the shape of the 2D matrix should be (100,(50+12+7+36))  
 
 Here, 100 is the maximum length of words that I choose to represent a message;  
 50 is the dimension of pretrained word vector that we use;  
